@@ -1,26 +1,48 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h1>User Profile</h1>
-            <hr>
             <h2>My Orders</h2>
-            {{# each orders }}
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            {{# each this.items }}
-                                <li class="list-group-item">
-                                    <span class="badge">{{ this.price }}</span>
-                                    {{ this.item.title }} | {{ this.qty }} Units
-                                </li>
+            <hr>
+            {{# if orders}}
+                {{# each orders }}
+                    <div class="panel panel-default">
+                        <div class=panel-header>
+                            <span><strong>Date: {{this.formattedDate}}</strong></span>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table cart-items">
+                            <tr>
+                                <th></th>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                            </tr>
+                            {{# each this.items}}
+                            <tr id={{this.item._id}}>
+                                <td>
+                                    <img class="order_img" class="img-responsive"src={{this.item.imagePath}} alt="Product Image">
+                                </td>
+                                <td>
+                                    {{this.item.title}}
+                                </td>
+                                <td>
+                                    Rs. {{this.price}}
+                                </td>
+                                <td>
+                                    <span class="item-qty">{{this.qty}}</span> 
+                                </td>
+                            </tr>
                             {{/each}}
-                        </ul>
+                        </table>        
+                        </div>
+                        <div class="panel-footer">
+                            <strong>Total Price: Rs. {{ this.cart.totalPrice }}</strong>
+                        </div>
                     </div>
-                    <div class="panel-footer">
-                        <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
-                    </div>
-                </div>
-            {{/each}}
+                {{/each}}
+            {{else}}
+                <h2>You have no orders yet!<h2>
+            {{/if}}    
         </div>
     </div>
 </div>

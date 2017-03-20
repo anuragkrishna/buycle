@@ -38,7 +38,7 @@ module.exports.addToCart = function(req, res, next) {
         }
         cart.add(product, productId);
         req.session.cart = cart;
-        res.status(200).send(JSON.stringify({ cartQty: cart.totalQty}));
+        res.status(200).send(JSON.stringify({ cartQty: cart.totalQty }));
     });
 };
 
@@ -92,10 +92,10 @@ module.exports.postCheckout = function(req, res, next) {
             });
             order.save(function(err, result) {
 
-                //Error handling not done. do it!
                 req.flash('success', "Successfully bought");
                 req.cart = null;
-                res.redirect('/');
+                req.session.cart = req.cart;
+                res.redirect('/user/profile');
             });
         }
     });

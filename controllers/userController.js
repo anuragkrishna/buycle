@@ -1,5 +1,7 @@
 var Order = require('../models/order');
 var Cart = require('../models/cart');
+var dateFormat = require('dateformat');
+var moment = require('moment');
 
 module.exports.getProfile = function(req, res, next) {
     Order.find({ user: req.user.id }, function(err, orders) {
@@ -10,6 +12,8 @@ module.exports.getProfile = function(req, res, next) {
             orders.forEach(function(order) {
                 cart = new Cart(order.cart);
                 order.items = cart.generateArray();
+                var orderDate = new Date(order.date);
+                order.formattedDate = orderDate.getDate() + '/' + (orderDate.getMonth() + 1) + '/' + orderDate.getFullYear();
             });
 
             res.render('user/profile', { orders: orders });

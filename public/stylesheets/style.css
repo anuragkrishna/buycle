@@ -51,10 +51,16 @@ body {
 }
 
 .panel {
-
-    background-color: white;
+    background-color:#fff;
+    color:#000;
     padding: 20px;
     margin-top:50px;
+    border:1px solid black;
+}
+
+.panel-footer{
+    background-color:#fff;
+    color:#000;
 }
 
 .order_img {
