@@ -22,6 +22,8 @@
     "csurf": "^1.9.0",
     "express-validator": "^3.1.2",
     "passport": "^0.3.2",
-    "express-handlebars":"*"
+    "express-handlebars":"*",
+    "mongoose":"*"
+
   }
 }
