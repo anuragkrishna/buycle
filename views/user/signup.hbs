@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-primary clearfix">
+				<h1>Sign Up</h1>
+				<hr>
+				{{# if hasErrors}}
+				<div class="alert alert-danger">
+					{{# each messages }}
+						<p>{{this}}</p>
+					{{/each}}
+				</div>
+				{{/if}}
+				<form action="/user/signup" method="post">
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input id="email" class="form-control" name="email" type="text" placeholder="E-mail">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input id="password" class="form-control" name="password" type="password" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<label for="passwordConfirmation">Confirm Password</label>
+						<input id="passwordConfirmation" class="form-control" name="passwordConfirmation" type="password" placeholder="Confirm Password">
+					</div>
+					<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+					<button class="btn btn-primary" type="submit">Sign up</button>
+				</form>
+				<br>
+				<p>Already have an account? <a href="/user/signin">Sign in</a></p>
+			</div>	
+		</div>
+	</div>
+</div>
