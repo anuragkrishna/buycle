@@ -14,15 +14,15 @@
 				<form action="/user/signup" method="post">
 					<div class="form-group">
 						<label for="email">E-mail</label>
-						<input id="email" class="form-control" name="email" type="text" placeholder="E-mail">
+						<input id="email" class="form-control" name="email" type="text" placeholder="E-mail" required>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
-						<input id="password" class="form-control" name="password" type="password" placeholder="Password">
+						<input id="password" class="form-control" name="password" type="password" placeholder="Password" required>
 					</div>
 					<div class="form-group">
 						<label for="passwordConfirmation">Confirm Password</label>
-						<input id="passwordConfirmation" class="form-control" name="passwordConfirmation" type="password" placeholder="Confirm Password">
+						<input id="passwordConfirmation" class="form-control" name="passwordConfirmation" type="password" placeholder="Confirm Password" required>
 					</div>
 					<input type="hidden" name="_csrf" value="{{ csrfToken }}">
 					<button class="btn btn-primary" type="submit">Sign up</button>

@@ -17,7 +17,15 @@ var userRoutes = require('./routes/user');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/bycledb');
+//DB Connection
+
+var dbURI = "";
+dbURI = typeof(process.env.npm_config_MONGOLAB_URI) !== 'undefined' ? process.env.npm_config_MONGOLAB_URI : process.env.MONGOLAB_URI;
+
+mongoose.connect(dbURI);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 require('./config/passport');
 
 // view engine setup
