@@ -34,7 +34,6 @@ $(function() {
             },
             success: function(data) {
                 var dataOj = $.parseJSON(data);
-                console.log(dataOj);
                 $('.cart-qty').html(dataOj.cartQty);
             }
         });
