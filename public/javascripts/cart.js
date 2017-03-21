@@ -6,10 +6,6 @@ $(function() {
             url: 'https://buycle.herokuapp.com:3000/remove/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
-            crossDomain: true,
-            xhrFields: {
-                withCredentials: true
-            },
             success: function(data) {
                 var dataOj = $.parseJSON(data);
                 $('#total-price').html("Total: Rs. " + dataOj.total);
@@ -30,10 +26,6 @@ $(function() {
             url: 'https://buycle.herokuapp.com:3000/add-to-cart/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
-            crossDomain: true,
-            xhrFields: {
-                withCredentials: true
-            },
             success: function(data) {
                 var dataOj = $.parseJSON(data);
                 console.log(dataOj);
