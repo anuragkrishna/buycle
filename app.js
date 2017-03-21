@@ -20,6 +20,7 @@ var app = express();
 //DB Connection
 
 var dbURI = "";
+console.log(process.env.npm_config_MONGOLAB_URI);
 dbURI = typeof(process.env.npm_config_MONGOLAB_URI) !== 'undefined' ? process.env.npm_config_MONGOLAB_URI : process.env.MONGOLAB_URI;
 
 mongoose.connect(dbURI);
@@ -44,6 +45,12 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie: { maxAge: 180 * 60 * 1000 }
 }));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(flash());
 app.use(passport.initialize());
