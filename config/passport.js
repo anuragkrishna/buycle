@@ -15,12 +15,13 @@ passport.deserializeUser(function(id, done) {
 passport.use('local.signup', new localStrategy({
     usernameField: "email",
     passwordField: "password",
+    passwordConfirmationField: "passwordConfirmation",
     passReqToCallback: true
 }, function(req, email, password, done) {
 
     req.checkBody('email', 'Invalid email').notEmpty().isEmail();
     req.checkBody('password', 'Invalid password').notEmpty().isLength({ min: 4 });
-    req.assert('confirmPassword', 'Passwords must match').equals(req.body.password);
+    req.assert('passwordConfirmation', 'Passwords must match').equals(req.body.password);
 
     var errors = req.validationErrors();
     if (errors) {
