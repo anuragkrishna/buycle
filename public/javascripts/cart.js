@@ -3,7 +3,7 @@ $(function() {
         event.preventDefault();
         var id = $(this).parent().parent().prop('id');
         $.ajax({
-            url: 'https://buycle.herokuapp.com/remove/' + id,
+            url: 'https://buycle.herokuapp.com:3000/remove/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
             crossDomain: true,
@@ -27,7 +27,7 @@ $(function() {
         event.preventDefault();
         var id = $(this).attr('data-id');
         $.ajax({
-            url: 'https://buycle.herokuapp.com/add-to-cart/' + id,
+            url: 'https://buycle.herokuapp.com:3000/add-to-cart/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
             crossDomain: true,
