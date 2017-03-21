@@ -3,7 +3,7 @@ $(function() {
         event.preventDefault();
         var id = $(this).parent().parent().prop('id');
         $.ajax({
-            url: 'https://krishtest.herokuapp.com:3000/remove/' + id,
+            url: 'https://krishtest.herokuapp.com/remove/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
             xhrFields: {
@@ -26,7 +26,7 @@ $(function() {
         event.preventDefault();
         var id = $(this).attr('data-id');
         $.ajax({
-            url: 'https://krishtest.herokuapp.com:3000/add-to-cart/' + id,
+            url: 'https://krishtest.herokuapp.com/add-to-cart/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
             xhrFields: {
