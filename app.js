@@ -46,9 +46,8 @@ app.use(session({
     cookie: { secure:false,maxAge: 180 * 60 * 1000 }
 }));
 
-var port = normalizePort(process.env.PORT || '3000');
-
 app.use(function(req, res, next) {
+ 
   res.header("Access-Control-Allow-Origin", "https://buycle.herokuapp.com:3000");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
