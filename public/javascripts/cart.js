@@ -6,6 +6,9 @@ $(function() {
             url: 'https://buycle.herokuapp.com/remove/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
             success: function(data) {
                 var dataOj = $.parseJSON(data);
                 $('#total-price').html("Total: Rs. " + dataOj.total);
@@ -26,9 +29,11 @@ $(function() {
             url: 'https://buycle.herokuapp.com/add-to-cart/' + id,
             contentType: 'application/json; charset=UTF-8',
             type: 'GET',
+            xhrFields: {
+                withCredentials: true
+            },
             success: function(data) {
                 var dataOj = $.parseJSON(data);
-                console.log(dataOj);
                 $('.cart-qty').html(dataOj.cartQty);
             }
         });
